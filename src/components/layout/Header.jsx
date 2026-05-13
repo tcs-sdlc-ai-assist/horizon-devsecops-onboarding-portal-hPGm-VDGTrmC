@@ -24,6 +24,7 @@ import {
 import { useApp } from '../../contexts/AppContext.jsx';
 import { useAuth } from '../../contexts/AuthContext.jsx';
 import { ROLES, ROLE_LIST, THEMES } from '../../constants/constants.js';
+import logo from '../../assets/logo.png';
 
 // ---------------------------------------------------------------------------
 // Breadcrumb Helpers
@@ -372,16 +373,11 @@ export default function Header() {
   // -------------------------------------------------------------------------
 
   return (
-    <header className="flex h-16 flex-shrink-0 items-center justify-between border-b border-surface-200 bg-white px-4 dark:border-surface-700 dark:bg-surface-900 lg:px-6">
+    <header className="flex h-[88px] flex-shrink-0 items-center justify-between border-b border-surface-200 bg-white pl-[20px] pr-4 dark:border-surface-700 dark:bg-surface-900 lg:pr-6">
       {/* Left section: Title + Breadcrumbs */}
       <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2 md:hidden">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-horizon-600">
-            <span className="text-sm font-bold text-white">H</span>
-          </div>
-          <span className="text-sm font-semibold text-surface-900 dark:text-surface-100">
-            Horizon
-          </span>
+        <div className="flex items-center mr-2">
+          <img src={logo} alt="Horizon Logo" className="h-[72px] w-[204px] object-contain" />
         </div>
         <Breadcrumbs items={breadcrumbs} onNavigate={handleNavigate} />
       </div>

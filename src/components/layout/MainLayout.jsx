@@ -22,26 +22,29 @@ export default function MainLayout() {
   const { sidebarCollapsed } = useApp();
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-surface-50 dark:bg-surface-950">
-      {/* Sidebar */}
-      <Sidebar />
+    <div className="flex h-screen w-screen flex-col overflow-hidden bg-surface-50 dark:bg-surface-950">
+      {/* Header */}
+      <Header />
 
       {/* Main content area */}
-      <div
-        className={clsx(
-          'flex flex-1 flex-col overflow-hidden transition-all duration-300',
-          sidebarCollapsed ? 'ml-0' : 'ml-0',
-        )}
-      >
-        {/* Header */}
-        <Header />
+      <div className="flex flex-1 overflow-hidden">
+        {/* Sidebar */}
+        <Sidebar />
 
-        {/* Page content */}
-        <main className="flex-1 overflow-y-auto scrollbar-thin">
-          <div className="mx-auto w-full max-w-9xl px-4 py-6 lg:px-6 lg:py-8">
-            <Outlet />
-          </div>
-        </main>
+        {/* Page content container */}
+        <div
+          className={clsx(
+            'flex flex-1 flex-col overflow-hidden transition-all duration-300',
+            sidebarCollapsed ? 'ml-0' : 'ml-0',
+          )}
+        >
+          {/* Page content */}
+          <main className="flex-1 overflow-y-auto scrollbar-thin">
+            <div className="mx-auto w-full max-w-9xl px-4 py-6 lg:px-6 lg:py-8">
+              <Outlet />
+            </div>
+          </main>
+        </div>
       </div>
     </div>
   );

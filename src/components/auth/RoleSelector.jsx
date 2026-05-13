@@ -21,6 +21,7 @@ import {
 import { useAuth } from '../../contexts/AuthContext.jsx';
 import { ROLES, ROLE_LIST } from '../../constants/constants.js';
 import { MOCK_USERS } from '../../constants/mockData.js';
+import logo from '../../assets/logo.png';
 
 // ---------------------------------------------------------------------------
 // Role Metadata
@@ -286,10 +287,10 @@ export default function RoleSelector({ redirectTo = '/' }) {
       <div className="mx-auto w-full max-w-2xl">
         {/* Header */}
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-horizon-600 shadow-soft">
-            <span className="text-xl font-bold text-white">H</span>
+          <div className="mx-auto mb-4 flex justify-center">
+            <img src={logo} alt="Horizon Logo" className="h-[72px] w-[204px] object-contain" />
           </div>
-          <h1 className="text-2xl font-semibold tracking-tight text-surface-900 dark:text-surface-100">
+          <h1 className="text-2xl font-semibold tracking-tight text-surface-900 dark:text-surface-100 mt-2">
             Horizon DevSecOps Portal
           </h1>
           <p className="mt-2 text-sm text-surface-500 dark:text-surface-400">

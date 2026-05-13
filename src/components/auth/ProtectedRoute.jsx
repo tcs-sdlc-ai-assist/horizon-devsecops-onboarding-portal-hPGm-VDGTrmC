@@ -104,10 +104,10 @@ export default function ProtectedRoute({ requiredRoles, children }) {
     return <AuthLoading />;
   }
 
-  // Redirect unauthenticated users to the root path, preserving the
+  // Redirect unauthenticated users to the login path, preserving the
   // intended destination so a future login flow can redirect back.
   if (!isAuthenticated || !currentUser) {
-    return <Navigate to="/" state={{ from: location }} replace />;
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
   // Check role-based access when requiredRoles is specified

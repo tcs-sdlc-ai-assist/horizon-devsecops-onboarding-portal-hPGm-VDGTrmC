@@ -391,27 +391,17 @@ export default function Sidebar() {
   return (
     <aside
       className={clsx(
-        'flex h-screen flex-col border-r border-surface-200 bg-white transition-all duration-300 dark:border-surface-700 dark:bg-surface-900',
+        'flex h-full flex-col border-r border-surface-200 bg-white transition-all duration-300 dark:border-surface-700 dark:bg-surface-900',
         sidebarCollapsed ? 'w-16' : 'w-64',
       )}
     >
-      {/* Header */}
+        {/* Header */}
       <div
         className={clsx(
-          'flex h-16 flex-shrink-0 items-center border-b border-surface-200 px-4 dark:border-surface-700',
-          sidebarCollapsed ? 'justify-center' : 'justify-between',
+          'flex h-12 flex-shrink-0 items-center px-4 pt-2',
+          'justify-end'
         )}
       >
-        {!sidebarCollapsed && (
-          <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-horizon-600">
-              <span className="text-sm font-bold text-white">H</span>
-            </div>
-            <span className="text-sm font-semibold text-surface-900 dark:text-surface-100">
-              Horizon
-            </span>
-          </div>
-        )}
         <button
           type="button"
           onClick={toggleSidebar}

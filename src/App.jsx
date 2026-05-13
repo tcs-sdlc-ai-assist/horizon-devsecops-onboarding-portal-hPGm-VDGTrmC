@@ -14,6 +14,7 @@ import { AppProvider } from './contexts/AppContext.jsx';
 import { ToastProvider } from './components/common/Toast.jsx';
 import { initializeStorage } from './utils/localStorage.js';
 import router from './router.jsx';
+import logo from './assets/logo.png';
 
 // ---------------------------------------------------------------------------
 // Error Boundary
@@ -47,8 +48,8 @@ class ErrorBoundary extends Component {
       return (
         <div className="flex min-h-screen items-center justify-center bg-surface-50 px-4 py-12 dark:bg-surface-950">
           <div className="mx-auto w-full max-w-md text-center">
-            <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-horizon-600 shadow-soft">
-              <span className="text-xl font-bold text-white">H</span>
+            <div className="mx-auto mb-6 flex justify-center">
+              <img src={logo} alt="Horizon Logo" className="h-[72px] w-[204px] object-contain" />
             </div>
             <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-red-100 dark:bg-red-900/30">
               <span className="text-3xl font-bold text-red-600 dark:text-red-400">!</span>
