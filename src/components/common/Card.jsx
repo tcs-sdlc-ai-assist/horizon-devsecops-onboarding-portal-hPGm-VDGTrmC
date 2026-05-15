@@ -18,11 +18,11 @@ import clsx from 'clsx';
  */
 const VARIANT_CLASSES = {
   default:
-    'rounded-xl border border-surface-200 bg-white p-6 shadow-card transition-shadow duration-200 dark:border-surface-700 dark:bg-surface-800',
+    'rounded-xl border border-surface-200 bg-white p-6 shadow-card transition-all duration-300 dark:border-surface-800 dark:bg-surface-900/50 dark:backdrop-blur-sm',
   outlined:
-    'rounded-xl border border-surface-300 bg-white p-6 transition-shadow duration-200 dark:border-surface-600 dark:bg-surface-800',
+    'rounded-xl border border-surface-300 bg-white p-6 transition-all duration-300 dark:border-surface-700 dark:bg-transparent',
   elevated:
-    'rounded-xl border border-surface-200 bg-white p-6 shadow-elevated transition-shadow duration-200 dark:border-surface-700 dark:bg-surface-800',
+    'rounded-xl border border-surface-200 bg-white p-6 shadow-elevated transition-all duration-300 dark:border-surface-700 dark:bg-surface-800 dark:shadow-2xl dark:shadow-black/20',
 };
 
 // ---------------------------------------------------------------------------
@@ -134,6 +134,13 @@ export default function Card({
         noPadding && '!p-0',
         className,
       )}
+      style={
+        variant === 'default'
+          ? {
+              backgroundImage: 'var(--card-gradient, none)',
+            }
+          : undefined
+      }
     >
       {noPadding ? (
         <>

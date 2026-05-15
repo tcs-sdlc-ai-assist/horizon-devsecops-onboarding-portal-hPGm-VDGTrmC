@@ -87,14 +87,14 @@ export default function EmptyState({
         'flex flex-col items-center justify-center text-center',
         sizeConfig.container,
         bordered &&
-          'rounded-xl border border-surface-200 bg-white dark:border-surface-700 dark:bg-surface-800',
+          'rounded-xl border border-surface-200 bg-white dark:border-surface-800 dark:bg-surface-900/50',
         className,
       )}
     >
       {/* Icon */}
       <div
         className={clsx(
-          'mx-auto mb-4 flex items-center justify-center rounded-full bg-surface-100 dark:bg-surface-800',
+          'mx-auto mb-4 flex items-center justify-center rounded-full bg-surface-100 dark:bg-surface-900',
           sizeConfig.iconWrapper,
         )}
       >

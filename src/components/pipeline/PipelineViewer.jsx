@@ -586,6 +586,41 @@ StageCard.propTypes = {
  * Pipeline flow diagram showing all stages.
  */
 function PipelineFlowDiagram({ stages, criticalityTier }) {
+  const normalizedStages = useMemo(() => {
+    if (!stages || !Array.isArray(stages)) return [];
+    return stages.map((stage, index) => {
+      if (typeof stage === 'string') {
+        let type = 'default';
+        const nameLower = stage.toLowerCase();
+        if (nameLower.includes('scan') || nameLower.includes('sast') || nameLower.includes('dast') || nameLower.includes('sca') || nameLower.includes('security')) {
+          type = STAGE_TYPES.SECURITY;
+        } else if (nameLower.includes('test') || nameLower.includes('qe')) {
+          type = STAGE_TYPES.TEST;
+        } else if (nameLower.includes('deploy')) {
+          type = STAGE_TYPES.DEPLOY;
+        } else if (nameLower.includes('build')) {
+          type = STAGE_TYPES.BUILD;
+        } else if (nameLower.includes('source') || nameLower.includes('checkout')) {
+          type = STAGE_TYPES.SOURCE;
+        } else if (nameLower.includes('artifact') || nameLower.includes('publish')) {
+          type = STAGE_TYPES.ARTIFACT;
+        } else if (nameLower.includes('approv') || nameLower.includes('sign-off')) {
+          type = STAGE_TYPES.APPROVAL;
+        } else if (nameLower.includes('validat')) {
+          type = STAGE_TYPES.VALIDATION;
+        }
+
+        return {
+          id: `stage-${index}`,
+          name: stage,
+          type,
+          order: index + 1,
+        };
+      }
+      return stage;
+    });
+  }, [stages]);
+
   const [expandedStages, setExpandedStages] = useState(new Set());
   const [allExpanded, setAllExpanded] = useState(false);
 
@@ -606,13 +641,13 @@ function PipelineFlowDiagram({ stages, criticalityTier }) {
       setExpandedStages(new Set());
       setAllExpanded(false);
     } else {
-      const allIds = new Set(stages.map((s, i) => s.id || i));
+      const allIds = new Set(normalizedStages.map((s, i) => s.id || i));
       setExpandedStages(allIds);
       setAllExpanded(true);
     }
-  }, [allExpanded, stages]);
+  }, [allExpanded, normalizedStages]);
 
-  if (!stages || !Array.isArray(stages) || stages.length === 0) {
+  if (!normalizedStages || normalizedStages.length === 0) {
     return (
       <EmptyState
         icon={GitBranch}
@@ -630,7 +665,7 @@ function PipelineFlowDiagram({ stages, criticalityTier }) {
         <div className="flex items-center gap-2">
           <GitBranch size={16} className="text-horizon-500" />
           <h4 className="text-sm font-semibold text-surface-900 dark:text-surface-100">
-            Pipeline Stages ({stages.length})
+            Pipeline Stages ({normalizedStages.length})
           </h4>
           {criticalityTier && (
             <Badge variant={CRITICALITY_VARIANT_MAP[criticalityTier] || 'neutral'} size="sm" dot>
@@ -649,14 +684,14 @@ function PipelineFlowDiagram({ stages, criticalityTier }) {
       </div>
 
       <div className="space-y-0">
-        {stages.map((stage, index) => (
+        {normalizedStages.map((stage, index) => (
           <StageCard
             key={stage.id || index}
             stage={stage}
             index={index}
             isExpanded={expandedStages.has(stage.id || index)}
             onToggle={handleToggleStage}
-            totalStages={stages.length}
+            totalStages={normalizedStages.length}
           />
         ))}
       </div>

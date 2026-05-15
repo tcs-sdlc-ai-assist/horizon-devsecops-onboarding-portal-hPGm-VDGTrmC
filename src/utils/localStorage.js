@@ -305,7 +305,7 @@ export const initializeStorage = (options = {}) => {
 
       // Set sensible defaults for user-preference keys
       if (!getStorageItem(LOCAL_STORAGE_KEYS.THEME)) {
-        setStorageItem(LOCAL_STORAGE_KEYS.THEME, 'light');
+        setStorageItem(LOCAL_STORAGE_KEYS.THEME, 'dark');
       }
       if (!getStorageItem(LOCAL_STORAGE_KEYS.SIDEBAR_COLLAPSED)) {
         setStorageItem(LOCAL_STORAGE_KEYS.SIDEBAR_COLLAPSED, false);

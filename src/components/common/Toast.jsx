@@ -38,35 +38,35 @@ const MAX_VISIBLE_TOASTS = 5;
 const VARIANT_CONFIG = {
   success: {
     container:
-      'border-green-200 bg-green-50 dark:border-green-800 dark:bg-green-900/20',
+      'border-green-200 bg-green-50 dark:border-green-500/30 dark:bg-surface-800 dark:shadow-[0_4px_20px_rgba(0,0,0,0.5)]',
     icon: CheckCircle2,
     iconClass: 'text-green-600 dark:text-green-400',
-    titleClass: 'text-green-800 dark:text-green-200',
-    messageClass: 'text-green-700 dark:text-green-300',
+    titleClass: 'text-green-800 dark:text-green-100',
+    messageClass: 'text-green-700 dark:text-green-200',
   },
   error: {
     container:
-      'border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-900/20',
+      'border-red-200 bg-red-50 dark:border-red-500/30 dark:bg-surface-800 dark:shadow-[0_4px_20px_rgba(0,0,0,0.5)]',
     icon: AlertCircle,
     iconClass: 'text-red-600 dark:text-red-400',
-    titleClass: 'text-red-800 dark:text-red-200',
-    messageClass: 'text-red-700 dark:text-red-300',
+    titleClass: 'text-red-800 dark:text-red-100',
+    messageClass: 'text-red-700 dark:text-red-200',
   },
   warning: {
     container:
-      'border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-900/20',
+      'border-amber-200 bg-amber-50 dark:border-amber-500/30 dark:bg-surface-800 dark:shadow-[0_4px_20px_rgba(0,0,0,0.5)]',
     icon: AlertTriangle,
     iconClass: 'text-amber-600 dark:text-amber-400',
-    titleClass: 'text-amber-800 dark:text-amber-200',
-    messageClass: 'text-amber-700 dark:text-amber-300',
+    titleClass: 'text-amber-800 dark:text-amber-100',
+    messageClass: 'text-amber-700 dark:text-amber-200',
   },
   info: {
     container:
-      'border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-900/20',
+      'border-blue-200 bg-blue-50 dark:border-horizon-500/30 dark:bg-surface-800 dark:shadow-[0_4px_20px_rgba(0,0,0,0.5)]',
     icon: Info,
-    iconClass: 'text-blue-600 dark:text-blue-400',
-    titleClass: 'text-blue-800 dark:text-blue-200',
-    messageClass: 'text-blue-700 dark:text-blue-300',
+    iconClass: 'text-blue-600 dark:text-horizon-400',
+    titleClass: 'text-blue-800 dark:text-horizon-100',
+    messageClass: 'text-blue-700 dark:text-horizon-200',
   },
 };
 
@@ -125,7 +125,7 @@ function ToastItem({ toast, onDismiss }) {
         onClick={handleDismiss}
         className={clsx(
           'flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-lg transition-colors duration-200',
-          'text-surface-400 hover:bg-surface-200/50 hover:text-surface-600 dark:text-surface-500 dark:hover:bg-surface-700/50 dark:hover:text-surface-300',
+          'text-surface-400 hover:bg-surface-200/50 hover:text-surface-600 dark:text-surface-400 dark:hover:bg-surface-700 dark:hover:text-surface-100',
         )}
         aria-label="Dismiss notification"
       >

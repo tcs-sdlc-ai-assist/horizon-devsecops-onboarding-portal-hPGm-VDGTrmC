@@ -409,9 +409,6 @@ function Step1ApplicationInfo({ formData, onChange, errors }) {
       {/* Domain / Portfolio */}
       <div>
         <DomainSelector
-          selectedDomainId={null}
-          selectedPortfolioId={null}
-          selectedApplicationId={null}
           showApplicationSelector={false}
           showMetadata={false}
           required

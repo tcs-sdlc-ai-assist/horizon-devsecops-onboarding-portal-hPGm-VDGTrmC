@@ -55,13 +55,13 @@ const VARIANT_CONFIG = {
       ),
   },
   pill: {
-    list: 'gap-1 rounded-lg bg-surface-100 p-1 dark:bg-surface-800',
+    list: 'gap-1 rounded-lg bg-surface-100 p-1 dark:bg-surface-900/50',
     tab: (isActive, isDisabled) =>
       clsx(
         'rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-horizon-500/20',
         isDisabled && 'cursor-not-allowed opacity-40',
         !isDisabled && !isActive && 'text-surface-500 hover:bg-surface-200 hover:text-surface-700 dark:text-surface-400 dark:hover:bg-surface-700 dark:hover:text-surface-200',
-        isActive && 'bg-white text-horizon-700 shadow-sm dark:bg-surface-700 dark:text-horizon-300',
+        isActive && 'bg-white text-horizon-700 shadow-sm dark:bg-surface-700 dark:text-horizon-300 dark:shadow-black/20',
       ),
   },
   bordered: {

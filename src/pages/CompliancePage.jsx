@@ -6,7 +6,7 @@
  * @module pages/CompliancePage
  */
 
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
@@ -72,6 +72,14 @@ export default function CompliancePage() {
   }, [location.pathname]);
 
   const [activeTab, setActiveTab] = useState(initialTab);
+
+  // Sync activeTab when URL changes externally (e.g. sidebar navigation)
+  useEffect(() => {
+    const tabFromPath = PATH_TO_TAB[location.pathname];
+    if (tabFromPath && tabFromPath !== activeTab) {
+      setActiveTab(tabFromPath);
+    }
+  }, [location.pathname]);
 
   // -------------------------------------------------------------------------
   // Resolve application context

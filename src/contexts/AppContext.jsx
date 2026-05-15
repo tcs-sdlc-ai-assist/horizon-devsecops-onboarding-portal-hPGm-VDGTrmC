@@ -43,7 +43,7 @@ const getInitialState = () => {
   const storedPortfolio = getStorageItem(LOCAL_STORAGE_KEYS.SELECTED_PORTFOLIO, null);
   const storedApplication = getStorageItem(LOCAL_STORAGE_KEYS.SELECTED_APPLICATION, null);
   const storedSidebarCollapsed = getStorageItem(LOCAL_STORAGE_KEYS.SIDEBAR_COLLAPSED, false);
-  const storedTheme = getStorageItem(LOCAL_STORAGE_KEYS.THEME, THEMES.LIGHT);
+  const storedTheme = getStorageItem(LOCAL_STORAGE_KEYS.THEME, THEMES.DARK);
   const dismissedNotifications = getStorageItem(LOCAL_STORAGE_KEYS.NOTIFICATION_DISMISSED, []);
 
   // Filter out dismissed notifications from mock data
@@ -57,7 +57,7 @@ const getInitialState = () => {
     selectedPortfolio: storedPortfolio,
     selectedApplication: storedApplication,
     sidebarCollapsed: storedSidebarCollapsed === true,
-    theme: THEME_LIST.includes(storedTheme) ? storedTheme : THEMES.LIGHT,
+    theme: THEME_LIST.includes(storedTheme) ? storedTheme : THEMES.DARK,
     notifications,
     domains: MOCK_DOMAINS,
     portfolios: MOCK_PORTFOLIOS,

@@ -59,10 +59,10 @@ const router = createBrowserRouter([
             path: '/onboarding/list',
             element: <OnboardingPage />,
           },
-          {
-            path: '/onboarding/import',
-            element: <OnboardingPage />,
-          },
+          // {
+          //   path: '/onboarding/import',
+          //   element: <OnboardingPage />,
+          // },
 
           // Pipelines
           {

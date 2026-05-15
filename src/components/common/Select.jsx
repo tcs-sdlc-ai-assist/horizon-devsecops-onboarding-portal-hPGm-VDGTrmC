@@ -521,6 +521,7 @@ export default function Select({
       ref={containerRef}
       className={clsx(
         'relative',
+        isOpen && 'z-30',
         fullWidth && 'w-full',
         className,
       )}
@@ -557,11 +558,11 @@ export default function Select({
           sizeConfig.text,
           disabled && 'cursor-not-allowed opacity-50',
           hasError
-            ? 'border-red-300 focus:border-red-500 focus:ring-red-500/20 dark:border-red-700'
+            ? 'border-red-300 focus:border-red-500 focus:ring-red-500/20 dark:border-red-900/50'
             : isOpen
-              ? 'border-horizon-500 ring-2 ring-horizon-500/20 dark:border-horizon-500'
-              : 'border-surface-300 focus:border-horizon-500 focus:ring-horizon-500/20 dark:border-surface-600',
-          'dark:bg-surface-800',
+              ? 'border-horizon-500 ring-2 ring-horizon-500/20 dark:border-horizon-500/50'
+              : 'border-surface-300 focus:border-horizon-500 focus:ring-horizon-500/20 dark:border-surface-700',
+          'dark:bg-surface-800/50',
         )}
       >
         <div className="flex min-w-0 flex-1 items-center gap-1.5">
@@ -571,7 +572,7 @@ export default function Select({
               {selectedTags.slice(0, 3).map((tag) => (
                 <span
                   key={tag.value}
-                  className="inline-flex max-w-[120px] items-center gap-1 truncate rounded bg-horizon-50 px-1.5 py-0.5 text-2xs font-medium text-horizon-700 dark:bg-horizon-900/30 dark:text-horizon-300"
+                  className="inline-flex max-w-[120px] items-center gap-1 truncate rounded bg-horizon-50 px-1.5 py-0.5 text-2xs font-medium text-horizon-700 dark:bg-horizon-900/30 dark:text-horizon-400 dark:border dark:border-horizon-800/50"
                 >
                   <span className="truncate">{tag.label}</span>
                   <button
@@ -642,7 +643,7 @@ export default function Select({
         <div
           role="listbox"
           aria-multiselectable={multiple}
-          className="absolute z-40 mt-1 w-full overflow-hidden rounded-lg border border-surface-200 bg-white shadow-elevated animate-fade-in dark:border-surface-700 dark:bg-surface-800"
+          className="absolute z-[60] mt-1 w-full overflow-hidden rounded-lg border border-surface-200 bg-white shadow-elevated animate-fade-in dark:border-surface-700 dark:bg-surface-900"
         >
           {/* Search input */}
           {searchable && (

@@ -6,7 +6,7 @@
  * @module pages/IntegrationsPage
  */
 
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
@@ -42,6 +42,7 @@ const PATH_TO_TAB = {
   '/integrations/catalog': 'manager',
   '/integrations/configured': 'manager',
   '/integrations/events': 'events',
+  '/observability/events': 'events',
 };
 
 // ---------------------------------------------------------------------------
@@ -72,6 +73,14 @@ export default function IntegrationsPage() {
   }, [location.pathname]);
 
   const [activeTab, setActiveTab] = useState(initialTab);
+
+  // Sync activeTab when URL changes externally (e.g. sidebar navigation)
+  useEffect(() => {
+    const tabFromPath = PATH_TO_TAB[location.pathname];
+    if (tabFromPath && tabFromPath !== activeTab) {
+      setActiveTab(tabFromPath);
+    }
+  }, [location.pathname]);
 
   // -------------------------------------------------------------------------
   // Resolve application context
@@ -133,11 +142,15 @@ export default function IntegrationsPage() {
   // -------------------------------------------------------------------------
 
   const renderTabContent = () => {
+    // Determine sub-tab for IntegrationManager based on URL
+    const integrationSubTab = location.pathname === '/integrations/configured' ? 'configured' : 'catalog';
+
     switch (activeTab) {
       case 'manager':
         return (
           <IntegrationManager
-            defaultTab="catalog"
+            key={integrationSubTab}
+            defaultTab={integrationSubTab}
             defaultApplicationId={defaultApplicationId}
             showSummary
           />

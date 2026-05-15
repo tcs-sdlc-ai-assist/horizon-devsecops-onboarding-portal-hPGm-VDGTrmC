@@ -115,7 +115,7 @@ function DropZone({
         disabled && 'cursor-not-allowed opacity-50',
         isDragging
           ? 'border-horizon-500 bg-horizon-50 dark:border-horizon-400 dark:bg-horizon-900/20'
-          : 'border-surface-300 bg-surface-50 hover:border-surface-400 hover:bg-surface-100 dark:border-surface-600 dark:bg-surface-800/50 dark:hover:border-surface-500 dark:hover:bg-surface-800',
+          : 'border-surface-300 bg-surface-50 hover:border-surface-400 hover:bg-surface-100 dark:border-surface-700 dark:bg-surface-900/50 dark:hover:border-surface-600 dark:hover:bg-surface-900',
       )}
     >
       <div
@@ -184,7 +184,7 @@ function FileInfo({ file, status, onRemove, disabled }) {
   const Icon = isCSV ? FileText : FileSpreadsheet;
 
   return (
-    <div className="flex items-center gap-3 rounded-lg border border-surface-200 bg-white px-4 py-3 dark:border-surface-700 dark:bg-surface-800">
+    <div className="flex items-center gap-3 rounded-lg border border-surface-200 bg-white px-4 py-3 dark:border-surface-800 dark:bg-surface-900/50">
       <div
         className={clsx(
           'flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg',
@@ -333,8 +333,8 @@ function DataPreview({ data, maxPreviewRows }) {
   }
 
   return (
-    <div className="mt-3 rounded-lg border border-surface-200 bg-white dark:border-surface-700 dark:bg-surface-800">
-      <div className="flex items-center justify-between border-b border-surface-200 px-4 py-2.5 dark:border-surface-700">
+    <div className="mt-3 rounded-lg border border-surface-200 bg-white dark:border-surface-800 dark:bg-surface-900/50">
+      <div className="flex items-center justify-between border-b border-surface-200 px-4 py-2.5 dark:border-surface-800">
         <div className="flex items-center gap-2">
           <CheckCircle2 size={16} className="text-green-500 dark:text-green-400" />
           <p className="text-sm font-medium text-surface-900 dark:text-surface-100">

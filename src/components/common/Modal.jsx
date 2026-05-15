@@ -217,7 +217,7 @@ export default function Modal({
         ref={panelRef}
         tabIndex={-1}
         className={clsx(
-          'relative w-full rounded-xl border border-surface-200 bg-white shadow-elevated outline-none transition-all duration-200 dark:border-surface-700 dark:bg-surface-800',
+          'relative w-full rounded-xl border border-surface-200 bg-white shadow-elevated outline-none transition-all duration-200 dark:border-surface-800 dark:bg-surface-900',
           sizeClass,
           className,
         )}

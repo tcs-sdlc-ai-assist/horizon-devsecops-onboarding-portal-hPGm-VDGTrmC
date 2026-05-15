@@ -110,7 +110,7 @@ function DashboardFilterBar({
   activeFilterCount,
 }) {
   return (
-    <div className="rounded-xl border border-surface-200 bg-white p-4 shadow-card dark:border-surface-700 dark:bg-surface-800">
+    <div className="relative z-20 overflow-visible rounded-xl border border-surface-200 bg-white/80 p-4 shadow-card backdrop-blur-md dark:border-surface-800 dark:bg-surface-950/80">
       <div className="flex flex-wrap items-center justify-between gap-3">
         {/* Left: Filters */}
         <div className="flex flex-wrap items-center gap-3">
@@ -249,9 +249,9 @@ function OverviewSummaryCards({ dashboardSummary, loading }) {
         {Array.from({ length: 4 }).map((_, i) => (
           <div
             key={`skeleton-${i}`}
-            className="flex items-center gap-3 rounded-xl border border-surface-200 bg-white p-4 dark:border-surface-700 dark:bg-surface-800"
+            className="flex items-center gap-3 rounded-xl border border-surface-200 bg-white/50 p-4 backdrop-blur-sm dark:border-surface-800 dark:bg-surface-900/50"
           >
-            <div className="h-10 w-10 animate-pulse rounded-lg bg-surface-200 dark:bg-surface-700" />
+            <div className="h-10 w-10 animate-pulse rounded-lg bg-surface-200 dark:bg-surface-800" />
             <div className="flex-1 space-y-2">
               <div className="h-6 w-16 animate-pulse rounded bg-surface-200 dark:bg-surface-700" />
               <div className="h-3 w-24 animate-pulse rounded bg-surface-200 dark:bg-surface-700" />
@@ -273,14 +273,14 @@ function OverviewSummaryCards({ dashboardSummary, loading }) {
       value: overview ? overview.totalApplications : 0,
       icon: Server,
       color: 'text-horizon-600 dark:text-horizon-400',
-      bg: 'bg-horizon-50 dark:bg-horizon-900/30',
+      bg: 'bg-horizon-50 dark:bg-horizon-500/10',
     },
     {
       label: 'Pipeline Success',
       value: overview ? `${overview.pipelineSuccessRate || 0}%` : 'N/A',
       icon: Zap,
       color: 'text-green-600 dark:text-green-400',
-      bg: 'bg-green-50 dark:bg-green-900/30',
+      bg: 'bg-green-50 dark:bg-green-500/10',
       status: overview && overview.pipelineSuccessRate >= 90 ? 'success' : 'warning',
     },
     {
@@ -291,8 +291,8 @@ function OverviewSummaryCards({ dashboardSummary, loading }) {
         ? 'text-red-600 dark:text-red-400'
         : 'text-blue-600 dark:text-blue-400',
       bg: overview && overview.criticalIncidents > 0
-        ? 'bg-red-50 dark:bg-red-900/30'
-        : 'bg-blue-50 dark:bg-blue-900/30',
+        ? 'bg-red-50 dark:bg-red-500/10'
+        : 'bg-blue-50 dark:bg-blue-500/10',
       extra: overview && overview.criticalIncidents > 0
         ? `${overview.criticalIncidents} critical`
         : null,
@@ -302,7 +302,7 @@ function OverviewSummaryCards({ dashboardSummary, loading }) {
       value: overview ? `${overview.overallComplianceScore || 0}%` : 'N/A',
       icon: Shield,
       color: 'text-purple-600 dark:text-purple-400',
-      bg: 'bg-purple-50 dark:bg-purple-900/30',
+      bg: 'bg-purple-50 dark:bg-purple-500/10',
       status: overview && overview.overallComplianceScore >= 90 ? 'success' : 'warning',
     },
   ];
@@ -314,7 +314,7 @@ function OverviewSummaryCards({ dashboardSummary, loading }) {
         return (
           <div
             key={stat.label}
-            className="flex items-center gap-3 rounded-xl border border-surface-200 bg-white p-4 shadow-card transition-shadow duration-200 hover:shadow-elevated dark:border-surface-700 dark:bg-surface-800"
+            className="flex items-center gap-3 rounded-xl border border-surface-200 bg-white/50 p-4 shadow-card transition-all duration-300 hover:shadow-elevated dark:border-surface-800 dark:bg-surface-900/50 dark:backdrop-blur-sm dark:hover:bg-surface-900"
           >
             <div
               className={clsx(

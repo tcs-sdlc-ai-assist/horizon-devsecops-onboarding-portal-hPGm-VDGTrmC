@@ -19,19 +19,19 @@ import clsx from 'clsx';
  */
 const VARIANT_CLASSES = {
   success:
-    'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
+    'bg-green-100 text-green-800 dark:bg-green-950/30 dark:text-green-400 dark:border dark:border-green-800/50',
   warning:
-    'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300',
+    'bg-amber-100 text-amber-800 dark:bg-amber-950/30 dark:text-amber-400 dark:border dark:border-amber-800/50',
   danger:
-    'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300',
+    'bg-red-100 text-red-800 dark:bg-red-950/30 dark:text-red-400 dark:border dark:border-red-800/50',
   info:
-    'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300',
+    'bg-blue-100 text-blue-800 dark:bg-blue-950/30 dark:text-blue-400 dark:border dark:border-blue-800/50',
   neutral:
-    'bg-surface-100 text-surface-700 dark:bg-surface-800 dark:text-surface-300',
+    'bg-surface-100 text-surface-700 dark:bg-surface-800 dark:text-surface-300 dark:border dark:border-surface-700/50',
   purple:
-    'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300',
+    'bg-purple-100 text-purple-800 dark:bg-purple-950/30 dark:text-purple-400 dark:border dark:border-purple-800/50',
   horizon:
-    'bg-horizon-50 text-horizon-700 dark:bg-horizon-900/30 dark:text-horizon-300',
+    'bg-horizon-50 text-horizon-700 dark:bg-horizon-900/30 dark:text-horizon-300 dark:border dark:border-horizon-800/50',
 };
 
 // ---------------------------------------------------------------------------

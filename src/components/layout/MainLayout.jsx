@@ -35,7 +35,6 @@ export default function MainLayout() {
         <div
           className={clsx(
             'flex flex-1 flex-col overflow-hidden transition-all duration-300',
-            sidebarCollapsed ? 'ml-0' : 'ml-0',
           )}
         >
           {/* Page content */}

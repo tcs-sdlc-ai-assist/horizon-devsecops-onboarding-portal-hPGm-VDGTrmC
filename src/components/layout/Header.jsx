@@ -373,11 +373,15 @@ export default function Header() {
   // -------------------------------------------------------------------------
 
   return (
-    <header className="flex h-[88px] flex-shrink-0 items-center justify-between border-b border-surface-200 bg-white pl-[20px] pr-4 dark:border-surface-700 dark:bg-surface-900 lg:pr-6">
+    <header className="flex h-[88px] flex-shrink-0 items-center justify-between border-b border-surface-200 bg-white/80 pl-[20px] pr-4 backdrop-blur-md sticky top-0 z-40 dark:border-surface-800 dark:bg-surface-950/80 lg:pr-6">
       {/* Left section: Title + Breadcrumbs */}
       <div className="flex items-center gap-4">
-        <div className="flex items-center mr-2">
-          <img src={logo} alt="Horizon Logo" className="h-[72px] w-[204px] object-contain" />
+        <div className="flex items-center mr-2 rounded-lg px-2 py-1 transition-all duration-300 dark:bg-white/90 dark:shadow-sm">
+          <img 
+            src={logo} 
+            alt="Horizon Logo" 
+            className="h-[72px] w-[204px] object-contain" 
+          />
         </div>
         <Breadcrumbs items={breadcrumbs} onNavigate={handleNavigate} />
       </div>

@@ -185,7 +185,7 @@ function TablePagination({
   const endItem = Math.min(currentPage * pageSize, totalItems);
 
   return (
-    <div className="flex flex-col items-center justify-between gap-3 border-t border-surface-200 px-4 py-3 dark:border-surface-700 sm:flex-row">
+    <div className="flex flex-col items-center justify-between gap-3 border-t border-surface-200 px-4 py-3 dark:border-surface-800 sm:flex-row">
       {/* Page size selector */}
       <div className="flex items-center gap-2">
         <label
@@ -717,7 +717,7 @@ export default function Table({
   return (
     <div
       className={clsx(
-        'overflow-hidden rounded-xl border border-surface-200 bg-white dark:border-surface-700 dark:bg-surface-800',
+        'overflow-hidden rounded-xl border border-surface-200 bg-white dark:border-surface-800 dark:bg-surface-900/50',
         className,
       )}
     >
@@ -747,7 +747,7 @@ export default function Table({
       <div className="overflow-x-auto scrollbar-thin">
         <table className="w-full min-w-full table-auto">
           {/* Header */}
-          <thead className="border-b border-surface-200 bg-surface-50 dark:border-surface-700 dark:bg-surface-900/50">
+          <thead className="border-b border-surface-200 bg-surface-50 dark:border-surface-800 dark:bg-surface-950/50">
             <tr>
               {visibleColumns.map((col) => {
                 const isSelectionCol = col.id === '__selection__';

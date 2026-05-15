@@ -56,7 +56,7 @@ const NAV_SECTIONS = [
     children: [
       { id: 'onboarding-new', label: 'New Application', path: '/onboarding/new' },
       { id: 'onboarding-list', label: 'Onboarded Apps', path: '/onboarding/list' },
-      { id: 'onboarding-import', label: 'Bulk Import', path: '/onboarding/import' },
+      // { id: 'onboarding-import', label: 'Bulk Import', path: '/onboarding/import' },
     ],
   },
   {
@@ -89,6 +89,7 @@ const NAV_SECTIONS = [
     path: '/observability',
     allowedRoles: [ROLES.ADMIN, ROLES.ENGINEER, ROLES.OWNER, ROLES.AUDITOR, ROLES.EXECUTIVE],
     children: [
+      { id: 'observability-overview', label: 'Overview', path: '/observability' },
       { id: 'observability-melt', label: 'MELT Metrics', path: '/observability/melt' },
       { id: 'observability-incidents', label: 'Incidents', path: '/observability/incidents' },
       { id: 'observability-events', label: 'Event Bus', path: '/observability/events' },
@@ -165,8 +166,8 @@ function NavItem({
       className={clsx(
         'group flex w-full items-center rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200',
         isActive
-          ? 'bg-horizon-50 text-horizon-700 dark:bg-horizon-900/30 dark:text-horizon-300'
-          : 'text-surface-600 hover:bg-surface-100 hover:text-surface-900 dark:text-surface-400 dark:hover:bg-surface-800 dark:hover:text-surface-200',
+          ? 'bg-horizon-50 text-horizon-700 dark:bg-horizon-500/10 dark:text-horizon-400 dark:ring-1 dark:ring-horizon-500/20'
+          : 'text-surface-600 hover:bg-surface-100 hover:text-surface-900 dark:text-surface-400 dark:hover:bg-surface-800/50 dark:hover:text-surface-200',
         isCollapsed ? 'justify-center' : 'justify-between',
       )}
     >
@@ -391,7 +392,7 @@ export default function Sidebar() {
   return (
     <aside
       className={clsx(
-        'flex h-full flex-col border-r border-surface-200 bg-white transition-all duration-300 dark:border-surface-700 dark:bg-surface-900',
+        'flex h-full flex-col border-r border-surface-200 bg-white transition-all duration-300 dark:border-surface-800 dark:bg-surface-950',
         sidebarCollapsed ? 'w-16' : 'w-64',
       )}
     >

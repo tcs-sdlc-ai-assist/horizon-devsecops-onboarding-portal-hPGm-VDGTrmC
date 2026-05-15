@@ -288,7 +288,13 @@ export default function RoleSelector({ redirectTo = '/' }) {
         {/* Header */}
         <div className="mb-8 text-center">
           <div className="mx-auto mb-4 flex justify-center">
-            <img src={logo} alt="Horizon Logo" className="h-[72px] w-[204px] object-contain" />
+            <div className="rounded-xl px-4 py-2 transition-all duration-300 dark:bg-white/90 dark:shadow-sm">
+              <img 
+                src={logo} 
+                alt="Horizon Logo" 
+                className="h-[72px] w-[204px] object-contain" 
+              />
+            </div>
           </div>
           <h1 className="text-2xl font-semibold tracking-tight text-surface-900 dark:text-surface-100 mt-2">
             Horizon DevSecOps Portal

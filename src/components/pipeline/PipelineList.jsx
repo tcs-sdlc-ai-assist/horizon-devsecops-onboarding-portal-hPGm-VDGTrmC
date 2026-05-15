@@ -375,7 +375,7 @@ function PipelineFilters({
   hasPermission,
 }) {
   return (
-    <div className="flex flex-wrap items-center justify-between gap-3">
+    <div className="relative z-20 flex flex-wrap items-center justify-between gap-3">
       <div className="flex flex-wrap items-center gap-3">
         {/* Search */}
         <div className="relative">

@@ -6,7 +6,7 @@
  * @module pages/PipelinePage
  */
 
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
@@ -43,7 +43,7 @@ const PIPELINE_TABS = [
  */
 const PATH_TO_TAB = {
   '/pipelines': 'list',
-  '/pipelines/runs': 'list',
+  '/pipelines/runs': 'viewer',
   '/pipelines/generate': 'generate',
 };
 
@@ -75,6 +75,14 @@ export default function PipelinePage() {
 
   const [activeTab, setActiveTab] = useState(initialTab);
   const [selectedPipeline, setSelectedPipeline] = useState(null);
+
+  // Sync activeTab when URL changes externally (e.g. sidebar navigation)
+  useEffect(() => {
+    const tabFromPath = PATH_TO_TAB[location.pathname];
+    if (tabFromPath && tabFromPath !== activeTab) {
+      setActiveTab(tabFromPath);
+    }
+  }, [location.pathname]);
 
   // -------------------------------------------------------------------------
   // Permission checks
@@ -133,19 +141,6 @@ export default function PipelinePage() {
     [toast],
   );
 
-  const handlePipelineGenerated = useCallback(
-    (result) => {
-      if (result && result.pipelineId) {
-        toast.success('Pipeline generated successfully!', {
-          title: 'Pipeline Generated',
-        });
-        setActiveTab('list');
-        navigate('/pipelines', { replace: true });
-      }
-    },
-    [toast, navigate],
-  );
-
   // -------------------------------------------------------------------------
   // Tab badges and state
   // -------------------------------------------------------------------------
@@ -195,7 +190,6 @@ export default function PipelinePage() {
           <PipelineGenerator
             defaultApplicationId={defaultApplicationId}
             defaultPlatform="jenkins"
-            onGenerated={handlePipelineGenerated}
           />
         );
       default:

@@ -6,7 +6,7 @@
  * @module pages/DashboardPage
  */
 
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import {
@@ -23,6 +23,7 @@ import KPIDashboard from '../components/dashboard/KPIDashboard.jsx';
 import GovernanceDashboard from '../components/dashboard/GovernanceDashboard.jsx';
 import { useAuth } from '../contexts/AuthContext.jsx';
 import { useApp } from '../contexts/AppContext.jsx';
+import { useLocation } from 'react-router-dom';
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -53,8 +54,28 @@ const DASHBOARD_TABS = [
 export default function DashboardPage() {
   const { currentUser } = useAuth();
   const { selectedDomain, selectedApplication } = useApp();
+  const location = useLocation();
 
-  const [activeTab, setActiveTab] = useState('overview');
+  // Map URL paths to dashboard tabs
+  const PATH_TO_TAB = {
+    '/': 'overview',
+    '/dashboard': 'overview',
+    '/observability': 'overview',
+    '/observability/melt': 'melt',
+    '/observability/incidents': 'melt',
+    '/observability/events': 'melt',
+  };
+
+  const initialTab = PATH_TO_TAB[location.pathname] || 'overview';
+  const [activeTab, setActiveTab] = useState(initialTab);
+
+  // Sync activeTab when URL changes externally (e.g. sidebar navigation)
+  useEffect(() => {
+    const tabFromPath = PATH_TO_TAB[location.pathname];
+    if (tabFromPath && tabFromPath !== activeTab) {
+      setActiveTab(tabFromPath);
+    }
+  }, [location.pathname]);
 
   // -------------------------------------------------------------------------
   // Resolve domain/application filters from global context

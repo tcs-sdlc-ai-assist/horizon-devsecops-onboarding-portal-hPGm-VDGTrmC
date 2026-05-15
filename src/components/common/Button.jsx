@@ -20,13 +20,13 @@ import { Loader2 } from 'lucide-react';
  */
 const VARIANT_CLASSES = {
   primary:
-    'bg-brand-primary text-white shadow-sm hover:bg-horizon-700 focus:ring-horizon-500 focus:ring-offset-2',
+    'bg-brand-primary text-white shadow-sm hover:bg-horizon-700 focus:ring-horizon-500 focus:ring-offset-2 dark:bg-horizon-600 dark:hover:bg-horizon-500 dark:focus:ring-offset-surface-950',
   secondary:
-    'border border-surface-300 bg-white text-surface-700 shadow-sm hover:bg-surface-50 focus:ring-horizon-500 focus:ring-offset-2 dark:border-surface-600 dark:bg-surface-800 dark:text-surface-200 dark:hover:bg-surface-700',
+    'border border-surface-300 bg-white text-surface-700 shadow-sm hover:bg-surface-50 focus:ring-horizon-500 focus:ring-offset-2 dark:border-surface-700 dark:bg-surface-800 dark:text-surface-200 dark:hover:bg-surface-700 dark:hover:text-surface-50 dark:focus:ring-offset-surface-950',
   danger:
-    'bg-brand-danger text-white shadow-sm hover:bg-red-600 focus:ring-red-500 focus:ring-offset-2',
+    'bg-brand-danger text-white shadow-sm hover:bg-red-600 focus:ring-red-500 focus:ring-offset-2 dark:bg-red-600 dark:hover:bg-red-500 dark:focus:ring-offset-surface-950',
   ghost:
-    'text-surface-600 hover:bg-surface-100 hover:text-surface-900 focus:ring-horizon-500 dark:text-surface-400 dark:hover:bg-surface-800 dark:hover:text-surface-200',
+    'text-surface-600 hover:bg-surface-100 hover:text-surface-900 focus:ring-horizon-500 dark:text-surface-400 dark:hover:bg-surface-800 dark:hover:text-surface-200 dark:focus:ring-offset-surface-950',
 };
 
 // ---------------------------------------------------------------------------

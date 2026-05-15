@@ -6,7 +6,7 @@
  * @module pages/OnboardingPage
  */
 
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
@@ -41,9 +41,9 @@ const ONBOARDING_TABS = [
  */
 const PATH_TO_TAB = {
   '/onboarding/new': 'new',
-  '/onboarding/import': 'new',
+  // '/onboarding/import': 'new',
   '/onboarding/list': 'list',
-  '/onboarding': 'list',
+  '/onboarding': 'catalog',
 };
 
 // ---------------------------------------------------------------------------
@@ -73,6 +73,14 @@ export default function OnboardingPage() {
   }, [location.pathname]);
 
   const [activeTab, setActiveTab] = useState(initialTab);
+
+  // Sync activeTab when URL changes externally (e.g. sidebar navigation)
+  useEffect(() => {
+    const tabFromPath = PATH_TO_TAB[location.pathname];
+    if (tabFromPath && tabFromPath !== activeTab) {
+      setActiveTab(tabFromPath);
+    }
+  }, [location.pathname]);
 
   // -------------------------------------------------------------------------
   // Permission checks

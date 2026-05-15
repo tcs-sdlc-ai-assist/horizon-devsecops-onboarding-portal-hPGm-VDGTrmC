@@ -359,8 +359,8 @@ export const LOCAL_STORAGE_KEYS = Object.freeze({
 // Theme
 // ---------------------------------------------------------------------------
 export const THEMES = Object.freeze({
-  LIGHT: 'light',
   DARK: 'dark',
+  LIGHT: 'light',
   SYSTEM: 'system',
 });
 
