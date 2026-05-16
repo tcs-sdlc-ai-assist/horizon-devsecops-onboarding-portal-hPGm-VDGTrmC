@@ -684,7 +684,27 @@ export default function OnboardedApplicationsList({
   // -------------------------------------------------------------------------
 
   const onboardingSummary = useMemo(() => {
-    return getOnboardingSummary();
+    // Compute summary from the actual catalog applications instead of
+    // onboarding records, since the mock applications were never submitted
+    // through the onboarding flow and therefore have no onboarding records.
+    const catalogResult = getApplications({ sortBy: 'name', sortOrder: 'asc' });
+    const allApps = catalogResult.data || [];
+
+    const activeCount = allApps.filter((a) => a.status === 'active').length;
+
+    const domainSet = new Set();
+    const critSet = new Set();
+    allApps.forEach((a) => {
+      if (a.domainName) domainSet.add(a.domainName);
+      if (a.criticalityTier) critSet.add(a.criticalityTier);
+    });
+
+    return {
+      totalOnboarded: allApps.length,
+      byStatus: { completed: activeCount },
+      byDomain: Array.from(domainSet).map((d) => ({ domain: d, count: 1 })),
+      byCriticality: Array.from(critSet).map((t) => ({ tier: t, count: 1 })),
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [refreshKey]);
 
