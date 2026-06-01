@@ -37,7 +37,7 @@ import logo from '../../assets/logo.png';
 const ROUTE_LABELS = {
   '': 'Dashboard',
   onboarding: 'Onboarding',
-  new: 'New Application',
+  new: 'Configure Application',
   list: 'Onboarded Apps',
   import: 'Bulk Import',
   pipelines: 'Pipelines',

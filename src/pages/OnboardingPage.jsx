@@ -30,7 +30,7 @@ import { useToast } from '../components/common/Toast.jsx';
  * @type {Array<Object>}
  */
 const ONBOARDING_TABS = [
-  { id: 'new', label: 'New Onboarding', icon: PackagePlus },
+  { id: 'new', label: 'Configure Application', icon: PackagePlus },
   { id: 'catalog', label: 'Catalog Browser', icon: LayoutGrid },
   { id: 'list', label: 'Onboarded Applications', icon: AppWindow },
 ];

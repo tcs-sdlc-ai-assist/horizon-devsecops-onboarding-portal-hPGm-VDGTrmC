@@ -54,7 +54,7 @@ const NAV_SECTIONS = [
     path: '/onboarding',
     allowedRoles: [ROLES.ADMIN, ROLES.ENGINEER, ROLES.OWNER],
     children: [
-      { id: 'onboarding-new', label: 'New Application', path: '/onboarding/new' },
+      { id: 'onboarding-new', label: 'Configure Application', path: '/onboarding/new' },
       { id: 'onboarding-list', label: 'Onboarded Apps', path: '/onboarding/list' },
       // { id: 'onboarding-import', label: 'Bulk Import', path: '/onboarding/import' },
     ],
